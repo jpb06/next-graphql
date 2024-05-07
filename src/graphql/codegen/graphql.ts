@@ -2,20 +2,33 @@
 import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
-export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
+export type Exact<T extends { [key: string]: unknown }> = {
+  [K in keyof T]: T[K];
+};
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>;
+};
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>;
+};
+export type MakeEmpty<
+  T extends { [key: string]: unknown },
+  K extends keyof T,
+> = { [_ in K]?: never };
+export type Incremental<T> =
+  | T
+  | {
+      [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never;
+    };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: { input: string; output: string; }
-  String: { input: string; output: string; }
-  Boolean: { input: boolean; output: boolean; }
-  Int: { input: number; output: number; }
-  Float: { input: number; output: number; }
+  ID: { input: string; output: string };
+  String: { input: string; output: string };
+  Boolean: { input: boolean; output: boolean };
+  Int: { input: number; output: number };
+  Float: { input: number; output: number };
   /** A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format. */
-  DateTime: { input: any; output: any; }
+  DateTime: { input: any; output: any };
 };
 
 export type GqlAddress = {
@@ -178,7 +191,6 @@ export type Mutation = {
   signup: GqlAuthOutput;
 };
 
-
 export type MutationCreateAddressArgs = {
   city: Scalars['String']['input'];
   country: Scalars['String']['input'];
@@ -186,18 +198,15 @@ export type MutationCreateAddressArgs = {
   zipCode: Scalars['String']['input'];
 };
 
-
 export type MutationLoginArgs = {
   password: Scalars['String']['input'];
   username: Scalars['String']['input'];
 };
 
-
 export type MutationPlaceOrderArgs = {
   creditCard: GqlPlaceOrderInput;
   orderedItems: Array<GqlNewOrderedItem>;
 };
-
 
 export type MutationSignupArgs = {
   email: Scalars['String']['input'];
@@ -208,7 +217,7 @@ export type MutationSignupArgs = {
 
 export enum NumberCondition {
   Gte = 'gte',
-  Lte = 'lte'
+  Lte = 'lte',
 }
 
 export type Query = {
@@ -225,26 +234,21 @@ export type Query = {
   productsWithIds: Array<GqlProductWithCategory>;
 };
 
-
 export type QueryCategoryArgs = {
   id: Scalars['Int']['input'];
 };
-
 
 export type QueryGetOrderArgs = {
   id: Scalars['Int']['input'];
 };
 
-
 export type QueryProductArgs = {
   id: Scalars['Int']['input'];
 };
 
-
 export type QueryProductsByPageArgs = {
   input: GqlPaginatedProductsInput;
 };
-
 
 export type QueryProductsWithIdsArgs = {
   ids: Array<Scalars['Int']['input']>;
@@ -252,18 +256,52 @@ export type QueryProductsWithIdsArgs = {
 
 export enum SortDirection {
   Asc = 'asc',
-  Desc = 'desc'
+  Desc = 'desc',
 }
 
 export enum SortField {
   Name = 'name',
-  Price = 'price'
+  Price = 'price',
 }
 
-export type AllProductsQueryVariables = Exact<{ [key: string]: never; }>;
+export type AllProductsQueryVariables = Exact<{ [key: string]: never }>;
 
+export type AllProductsQuery = {
+  __typename?: 'Query';
+  products: Array<{
+    __typename?: 'GqlProductWithCategory';
+    id: string;
+    name: string;
+    description: string;
+    image: string;
+  }>;
+};
 
-export type AllProductsQuery = { __typename?: 'Query', products: Array<{ __typename?: 'GqlProductWithCategory', id: string, name: string, description: string, image: string }> };
-
-
-export const AllProductsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"allProducts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"products"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"image"}}]}}]}}]} as unknown as DocumentNode<AllProductsQuery, AllProductsQueryVariables>;
+export const AllProductsDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'allProducts' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'products' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'name' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'description' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'image' } },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<AllProductsQuery, AllProductsQueryVariables>;

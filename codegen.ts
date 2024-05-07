@@ -13,6 +13,9 @@ const config: CodegenConfig = {
       plugins: ['introspection'],
     },
   },
+  hooks: {
+    afterAllFileWrite: ['prettier --write'],
+  },
 };
 
 export default config;
