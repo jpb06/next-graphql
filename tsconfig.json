@@ -18,7 +18,11 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@components": ["./src/components"],
+      "@graphql/codegen": ["./src/graphql/codegen"],
+      "@graphql/queries": ["./src/graphql/queries"],
+      "@graphql/mutations": ["./src/graphql/mutations"],
+      "@logic/tanstack-query": ["./src/logic/tanstack-query"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

@@ -1,20 +1,35 @@
-import type { Config } from "tailwindcss";
+import daisyUi from 'daisyui';
+import type { Config } from 'tailwindcss';
+import plugin from 'tailwindcss/plugin';
 
-const config: Config = {
+interface AddVariantArgs {
+  modifySelectors: (
+    arg: ({ className }: { className: string }) => string,
+  ) => void;
+  separator: string;
+}
+
+export default {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
-    },
+    extend: {},
   },
-  plugins: [],
-};
-export default config;
+  plugins: [
+    plugin(({ addVariant, e }) => {
+      addVariant('not-first', (({
+        modifySelectors,
+        separator,
+      }: AddVariantArgs) => {
+        modifySelectors(({ className }) => {
+          const element = e(`not-first${separator}${className}`);
+          return `.${element}:not(:first-child)`;
+        });
+      }) as never);
+    }),
+    daisyUi,
+  ],
+} satisfies Config;

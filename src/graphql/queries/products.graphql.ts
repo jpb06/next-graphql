@@ -1,7 +1,7 @@
-import request from 'graphql-request';
+import { request } from 'graphql-request';
 
 import { graphql } from '../codegen/gql';
-import { schemaUrl } from '../schema-url';
+import { schemaUrl } from '../constants/schema-url.constant';
 
 const productsQueryDocument = graphql(/* GraphQL */ `
   query allProducts {

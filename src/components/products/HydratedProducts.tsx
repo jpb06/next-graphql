@@ -1,7 +1,7 @@
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 
 import { getAllProducts } from '../../graphql/queries/products.graphql';
-import { getQueryClient } from '../../providers/get-query-client';
+import { getQueryClient } from '../../logic/tanstack-query/get-query-client';
 
 import { ProductsByQuery } from './ProductsByQuery';
 
