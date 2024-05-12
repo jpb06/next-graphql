@@ -10,7 +10,7 @@ type ProductsProps = {
 };
 
 export const ProductsByPropsDrilling = ({ data }: ProductsProps) => (
-  <div className="grid grid-cols-4 gap-4 px-4">
+  <div className="grid grid-cols-1 gap-4 px-4 sm:grid-cols-2 md:grid-cols-4">
     {data?.map(({ id, name, description, image }) => (
       <Card key={id} className="flex" scale={1.03}>
         <figure className="relative h-[100px]">
