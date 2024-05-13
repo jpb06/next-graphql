@@ -1,6 +1,5 @@
 'use client';
 
-// import { Icon } from '@iconify/react';
 import { useRef } from 'react';
 
 import { MotionContainer } from '@components';
@@ -23,10 +22,6 @@ export const Menu = () => {
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <MenuAlt1 className="h-8 w-8 text-white" />
-            {/* <Icon
-              icon="heroicons-solid:menu-alt-1"
-              className="h-8 w-8 text-white"
-            /> */}
           </div>
           <ul
             // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
@@ -67,7 +62,6 @@ export const Menu = () => {
       </div>
       <div className="navbar-end">
         <a href="https://github.com/jpb06/next-graphql">
-          {/* <Icon icon="mdi:github" className="h-12 w-12 text-white" /> */}
           <Github className="h-12 w-12 text-white" />
         </a>
       </div>

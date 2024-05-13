@@ -14,9 +14,6 @@ importers:
       '@graphql-typed-document-node/core':
         specifier: ^3.2.0
         version: 3.2.0(graphql@16.8.1)
-      '@iconify/react':
-        specifier: 5.0.0-beta.2
-        version: 5.0.0-beta.2(react@18.3.1)
       '@tanstack/react-query':
         specifier: ^5.36.0
         version: 5.36.0(react@18.3.1)
@@ -752,11 +749,6 @@ packages:
 
   '@iconify/json@2.2.209':
     resolution: {integrity: sha512-Q19wYEc48ZSIxNEMhxTF7HbCOCR5QJcC8xHlRYSSt7gWdcdhleaUCreJwQSbj4lEZc0JXPFzG47ONBlLDFP7LA==}
-
-  '@iconify/react@5.0.0-beta.2':
-    resolution: {integrity: sha512-eSnV4t0Lzp9VrMqPLQw16z23SDE54FQp7POmIWekqIQjQNk0Kh6y9BcNUtdGTjbobNbI5O57baVuq/r3T3uMqg==}
-    peerDependencies:
-      react: '>=16'
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -4543,11 +4535,6 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 1.1.2
-
-  '@iconify/react@5.0.0-beta.2(react@18.3.1)':
-    dependencies:
-      '@iconify/types': 2.0.0
-      react: 18.3.1
 
   '@iconify/types@2.0.0': {}
 

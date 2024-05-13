@@ -5,19 +5,12 @@ const nextConfig = {
   reactStrictMode: true,
   experimental: {},
   webpack(config) {
-    //config.infrastructureLogging = { debug: /PackFileCache/ };
     config.plugins.push(
       Icons({
         compiler: 'jsx',
         jsx: 'react',
       }),
     );
-    // config.plugins.push(
-    //   require('unplugin-icons/webpack').default({
-    //     compiler: 'jsx',
-    //     jsx: 'react',
-    //   }),
-    // );
 
     return config;
   },
