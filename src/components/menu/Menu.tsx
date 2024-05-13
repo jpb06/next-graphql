@@ -1,5 +1,7 @@
 'use client';
 
+import { SiGithub } from '@icons-pack/react-simple-icons';
+import { Menu as MenuIcon } from 'lucide-react';
 import { useRef } from 'react';
 
 import { MotionContainer } from '@components';
@@ -10,9 +12,6 @@ import {
   apolloMenuItems,
 } from './children/MenuItems';
 
-import MenuAlt1Icon from '~icons/heroicons-solid/menu-alt-1.jsx';
-import GithubIcon from '~icons/mdi/github.jsw';
-
 export const Menu = () => {
   const mobileMenuRef = useRef<HTMLUListElement>(null);
 
@@ -21,7 +20,7 @@ export const Menu = () => {
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <MenuAlt1Icon className="h-8 w-8 text-white" />
+            <MenuIcon className="h-8 w-8 text-white" />
           </div>
           <ul
             // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
@@ -62,7 +61,7 @@ export const Menu = () => {
       </div>
       <div className="navbar-end">
         <a href="https://github.com/jpb06/next-graphql">
-          <GithubIcon className="h-12 w-12 text-white" />
+          <SiGithub className="h-12 w-12 text-white" />
         </a>
       </div>
     </MotionContainer>
