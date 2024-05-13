@@ -2,14 +2,15 @@
 
 import Image from 'next/image';
 
-import type { AllProductsQuery } from '../../graphql/codegen/graphql';
-import { Card } from '../card/Card';
+import { Card } from '@components';
 
-type ProductsProps = {
+import type { AllProductsQuery } from '../../graphql/codegen/graphql';
+
+type ProductsGridProps = {
   data: AllProductsQuery['products'];
 };
 
-export const ProductsByPropsDrilling = ({ data }: ProductsProps) => (
+export const ProductsGrid = ({ data }: ProductsGridProps) => (
   <div className="grid grid-cols-1 gap-4 px-4 sm:grid-cols-2 md:grid-cols-4">
     {data?.map(({ id, name, description, image }) => (
       <Card key={id} className="flex" scale={1.03}>

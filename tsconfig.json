@@ -20,9 +20,11 @@
     "paths": {
       "@components": ["./src/components"],
       "@graphql/codegen": ["./src/graphql/codegen"],
-      "@graphql/queries": ["./src/graphql/queries"],
-      "@graphql/mutations": ["./src/graphql/mutations"],
-      "@logic/tanstack-query": ["./src/logic/tanstack-query"]
+      "@graphql/schema": ["./src/graphql/constants/schema-url.constant.ts"],
+      "@graphql/categories": ["./src/graphql/entities/categories"],
+      "@graphql/products": ["./src/graphql/entities/products"],
+      "@logic/tanstack-query": ["./src/logic/tanstack-query"],
+      "@types": ["./src/types"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

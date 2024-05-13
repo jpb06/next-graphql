@@ -1,21 +1,21 @@
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 
-import { getAllProducts } from '../../graphql/queries/products.graphql';
-import { getQueryClient } from '../../logic/tanstack-query/get-query-client';
+import { getAllProducts } from '@graphql/products';
+import { getQueryClient } from '@logic/tanstack-query';
 
-import { ProductsByQuery } from './ProductsByQuery';
+import { PrefetchedProductsClientHydration } from './PrefetchedProductsClientHydration';
 
-export const HydratedProducts = async () => {
+export const PrefectProducts = async () => {
   const queryClient = getQueryClient();
   await queryClient.prefetchQuery({
-    queryKey: ['products'],
+    queryKey: ['all-products'],
     queryFn: getAllProducts,
   });
   const dehydratedState = dehydrate(queryClient);
 
   return (
     <HydrationBoundary state={dehydratedState}>
-      <ProductsByQuery />
+      <PrefetchedProductsClientHydration />
     </HydrationBoundary>
   );
 };

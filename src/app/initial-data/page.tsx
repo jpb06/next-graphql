@@ -1,9 +1,9 @@
-import { ProductsByPropsDrilling } from '../../components/products/ProductsByPropsDrilling';
-import { getAllProducts } from '../../graphql/queries/products.graphql';
+import { ProductsGrid } from '@components';
+import { getAllProducts } from '@graphql/products';
 
 const Page = async () => {
   const initialData = await getAllProducts();
 
-  return <ProductsByPropsDrilling data={initialData.products} />;
+  return <ProductsGrid data={initialData.products} />;
 };
 export default Page;

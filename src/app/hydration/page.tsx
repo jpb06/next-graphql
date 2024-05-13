@@ -1,4 +1,10 @@
-import { HydratedProducts } from '../../components/products/HydratedProducts';
+import { Suspense } from 'react';
 
-const Page = () => <HydratedProducts />;
+import { PrefectProducts, Loading } from '@components';
+
+const Page = () => (
+  <Suspense fallback={<Loading />}>
+    <PrefectProducts />
+  </Suspense>
+);
 export default Page;

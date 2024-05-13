@@ -13,7 +13,7 @@ export const menuItems: MenuItemProps[] = [
 ];
 
 export const MenuItem = ({ href, label, mobileMenuRef }: MenuItemProps) => (
-  <li className="z-50 flex flex-row items-center not-first:before:text-white not-first:before:content-['/']">
+  <li className="z-50 flex flex-row items-center lg:not-first:before:text-white lg:not-first:before:content-['/']">
     <Link
       href={href}
       className="py-4 md:px-2 md:py-1"

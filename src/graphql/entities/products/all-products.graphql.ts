@@ -1,15 +1,13 @@
 import { request } from 'graphql-request';
 
-import { graphql } from '../codegen/gql';
-import { schemaUrl } from '../constants/schema-url.constant';
+import { graphql } from '@graphql/codegen';
+import { schemaUrl } from '@graphql/schema';
 
-const productsQueryDocument = graphql(/* GraphQL */ `
+const productsQueryDocument = graphql(`
   query allProducts {
     products {
       id
-      name
-      description
-      image
+      ...ProductItemWithCategory
     }
   }
 `);

@@ -3,7 +3,7 @@
 import { Icon } from '@iconify/react';
 import { useRef } from 'react';
 
-import { MotionContainer } from '../motion-container/MotionContainer';
+import { MotionContainer } from '@components';
 
 import { menuItems, MenuItem } from './children/MenuItems';
 

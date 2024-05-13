@@ -3,8 +3,8 @@ import { Inter } from 'next/font/google';
 import type { PropsWithChildren } from 'react';
 
 import './globals.css';
-import { Menu } from '../components/menu/Menu';
-import { Providers } from '../logic/tanstack-query/query-client.provider';
+import { Menu } from '@components';
+import { Providers } from '@logic/tanstack-query';
 
 const inter = Inter({ subsets: ['latin'] });
 

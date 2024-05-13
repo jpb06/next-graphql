@@ -1,7 +1,9 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import type { PropsWithChildren } from 'react';
 
-import type { PropsWithClassName } from '../../types/props-with-classname.type';
+import type { PropsWithClassName } from '@types';
 
 import { defaultTransition } from './logic/default-transition.logic';
 

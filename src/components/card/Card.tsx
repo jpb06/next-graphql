@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react';
 
-import type { PropsWithClassName } from '../../types/props-with-classname.type';
-import { MotionContainer } from '../motion-container/MotionContainer';
+import { MotionContainer } from '@components';
+import type { PropsWithClassName } from '@types';
 
 type CardProps = {
   scale?: number;
