@@ -1,6 +1,6 @@
 'use client';
 
-import { useSuspenseQuery } from '@apollo/client';
+import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr';
 
 import { ProductsGrid } from '@components';
 import { productsQueryDocument } from '@graphql/products';
