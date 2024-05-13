@@ -1,11 +1,18 @@
 'use client';
 
-import { Icon } from '@iconify/react';
+// import { Icon } from '@iconify/react';
 import { useRef } from 'react';
 
 import { MotionContainer } from '@components';
 
-import { menuItems, MenuItem } from './children/MenuItems';
+import {
+  tanstackMenuItems,
+  MenuItem,
+  apolloMenuItems,
+} from './children/MenuItems';
+
+import MenuAlt1 from '~icons/heroicons-solid/menu-alt-1.jsx';
+import Github from '~icons/mdi/github.jsw';
 
 export const Menu = () => {
   const mobileMenuRef = useRef<HTMLUListElement>(null);
@@ -15,10 +22,11 @@ export const Menu = () => {
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <Icon
+            <MenuAlt1 className="h-8 w-8 text-white" />
+            {/* <Icon
               icon="heroicons-solid:menu-alt-1"
               className="h-8 w-8 text-white"
-            />
+            /> */}
           </div>
           <ul
             // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
@@ -26,7 +34,7 @@ export const Menu = () => {
             ref={mobileMenuRef}
             className="menu dropdown-content menu-sm -ml-2 mt-3 w-[282px] rounded-box bg-base-100 bg-gradient-to-tl from-cyan-950 to-sky-900 p-2 shadow"
           >
-            {menuItems.map((item) => (
+            {tanstackMenuItems.map((item) => (
               <MenuItem
                 key={item.href}
                 {...item}
@@ -39,16 +47,28 @@ export const Menu = () => {
           next-graphql
         </a>
       </div>
-      <div className="navbar-center hidden flex-col lg:flex">
-        <ul className="menu menu-horizontal px-1 py-0">
-          {menuItems.map((item) => (
-            <MenuItem key={item.href} {...item} />
-          ))}
-        </ul>
+      <div className="flex w-full flex-col">
+        <div className="navbar-start hidden w-full flex-row items-center lg:flex">
+          <span className="text-white">Tanstack</span>
+          <ul className="menu menu-horizontal px-1 py-0">
+            {tanstackMenuItems.map((item) => (
+              <MenuItem key={item.href} {...item} />
+            ))}
+          </ul>
+        </div>
+        <div className="navbar-start hidden w-full flex-row items-center lg:flex">
+          <span className="text-white">Apollo</span>
+          <ul className="menu menu-horizontal px-1 py-0">
+            {apolloMenuItems.map((item) => (
+              <MenuItem key={item.href} {...item} />
+            ))}
+          </ul>
+        </div>
       </div>
       <div className="navbar-end">
         <a href="https://github.com/jpb06/next-graphql">
-          <Icon icon="mdi:github" className="h-12 w-12 text-white" />
+          {/* <Icon icon="mdi:github" className="h-12 w-12 text-white" /> */}
+          <Github className="h-12 w-12 text-white" />
         </a>
       </div>
     </MotionContainer>

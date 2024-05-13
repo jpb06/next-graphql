@@ -7,9 +7,13 @@ type MenuItemProps = {
   mobileMenuRef?: RefObject<HTMLUListElement>;
 };
 
-export const menuItems: MenuItemProps[] = [
-  { href: '/hydration', label: 'Hydration' },
-  { href: '/initial-data', label: 'Initial data' },
+export const tanstackMenuItems: MenuItemProps[] = [
+  { href: '/tanstack-query/hydration', label: 'Hydration' },
+  { href: '/tanstack-query/initial-data', label: 'Initial data' },
+];
+
+export const apolloMenuItems: MenuItemProps[] = [
+  { href: '/apollo/hydration', label: 'Hydration' },
 ];
 
 export const MenuItem = ({ href, label, mobileMenuRef }: MenuItemProps) => (
