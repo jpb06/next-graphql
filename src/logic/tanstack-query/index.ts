@@ -1,2 +1,2 @@
 export * from './get-query-client';
-export * from './query-client.provider';
+export * from './QueryClientProvider';

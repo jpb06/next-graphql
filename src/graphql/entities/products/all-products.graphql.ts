@@ -2,8 +2,9 @@ import { request } from 'graphql-request';
 
 import { graphql } from '@graphql/codegen';
 import { schemaUrl } from '@graphql/schema';
+import { delay } from '@logic';
 
-const productsQueryDocument = graphql(`
+export const productsQueryDocument = graphql(`
   query allProducts {
     products {
       id
@@ -12,5 +13,9 @@ const productsQueryDocument = graphql(`
   }
 `);
 
-export const getAllProducts = async () =>
-  await request(schemaUrl, productsQueryDocument, {});
+export const getAllProducts = async () => {
+  const data = await request(schemaUrl, productsQueryDocument, {});
+  await delay(1000);
+
+  return data;
+};
