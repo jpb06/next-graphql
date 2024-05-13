@@ -6,7 +6,7 @@ import { getAllProducts } from '@graphql/products';
 
 import { ProductsGrid } from './ProductsGrid';
 
-export const PrefetchedProductsClientHydration = () => {
+export const TanstackQueryProductsClientHydration = () => {
   const { data } = useQuery({
     queryKey: ['all-products'],
     queryFn: getAllProducts,

@@ -1,6 +1,6 @@
 const pathAliases = {
-  pattern: '{@components,@graphql/**,@logic/**,@types}',
-  regex: '^@(components|@graphql/|@logic/|types)',
+  pattern: '{@components,@graphql/**,@logic,@logic/**,@types}',
+  regex: '^@(components|graphql/|logic|logic/|types)',
 };
 
 /** @type {import('eslint').Linter.Config} */

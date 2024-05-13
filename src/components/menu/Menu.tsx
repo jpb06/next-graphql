@@ -6,11 +6,8 @@ import { useRef } from 'react';
 
 import { MotionContainer } from '@components';
 
-import {
-  tanstackMenuItems,
-  MenuItem,
-  apolloMenuItems,
-} from './children/MenuItems';
+import { MenuItem } from './children/MenuItems';
+import { apolloMenuItems, tanstackMenuItems } from './logic';
 
 export const Menu = () => {
   const mobileMenuRef = useRef<HTMLUListElement>(null);

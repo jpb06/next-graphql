@@ -23,6 +23,8 @@
       "@graphql/schema": ["./src/graphql/constants/schema-url.constant.ts"],
       "@graphql/categories": ["./src/graphql/entities/categories"],
       "@graphql/products": ["./src/graphql/entities/products"],
+      "@logic": ["./src/logic/common"],
+      "@logic/apollo": ["./src/logic/apollo"],
       "@logic/tanstack-query": ["./src/logic/tanstack-query"],
       "@types": ["./src/types"]
     }
