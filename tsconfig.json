@@ -18,7 +18,13 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@components": ["./src/components"],
+      "@graphql/codegen": ["./src/graphql/codegen"],
+      "@graphql/schema": ["./src/graphql/constants/schema-url.constant.ts"],
+      "@graphql/categories": ["./src/graphql/entities/categories"],
+      "@graphql/products": ["./src/graphql/entities/products"],
+      "@logic/tanstack-query": ["./src/logic/tanstack-query"],
+      "@types": ["./src/types"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

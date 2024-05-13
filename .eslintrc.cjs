@@ -1,17 +1,25 @@
+const pathAliases = {
+  pattern: '{@components,@graphql/**,@logic/**,@types}',
+  regex: '^@(components|@graphql/|@logic/|types)',
+};
+
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
   root: true,
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    ecmaFeatures: { jsx: true },
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
-  env: { browser: true, commonjs: true, es6: true },
-  ignorePatterns: ['!**/.server', '!**/.client'],
-
+  env: {
+    browser: true,
+    commonjs: true,
+    es6: true,
+  },
   // Base config
   extends: ['eslint:recommended'],
-
   overrides: [
     // React
     {
@@ -20,15 +28,13 @@ module.exports = {
       parserOptions: {
         project: ['tsconfig.json'],
       },
-      plugins: ['react', '@typescript-eslint', 'import', 'jsx-a11y'],
+      plugins: ['@typescript-eslint', 'import', 'jsx-a11y'],
       extends: [
-        'plugin:react/recommended',
-        'plugin:react/jsx-runtime',
-        'plugin:react-hooks/recommended',
-        'plugin:jsx-a11y/recommended',
         'prettier',
         'plugin:@typescript-eslint/recommended',
         'plugin:import/typescript',
+        'plugin:@next/next/recommended',
+        'next/core-web-vitals',
       ],
       settings: {
         react: {
@@ -45,9 +51,15 @@ module.exports = {
           'error',
           {
             alphabetize: { caseInsensitive: true, order: 'asc' },
-            groups: ['builtin', 'external', 'parent', 'sibling'],
+            groups: ['builtin', 'external', 'internal', 'parent', 'sibling'],
             'newlines-between': 'always',
-            pathGroups: [],
+            pathGroups: [
+              {
+                pattern: pathAliases.pattern,
+                group: 'internal',
+                position: 'before',
+              },
+            ],
             pathGroupsExcludedImportTypes: ['builtin'],
           },
         ],
@@ -55,7 +67,7 @@ module.exports = {
           'warn',
           { validStrategies: ['ternary'] },
         ],
-        'react/self-closing-comp': ['error'],
+        'react/self-closing-comp': 'error',
         '@typescript-eslint/consistent-type-exports': 'error',
         '@typescript-eslint/consistent-type-imports': 'error',
         '@typescript-eslint/no-unused-vars': [
@@ -108,6 +120,7 @@ module.exports = {
       ],
       parser: '@typescript-eslint/parser',
       settings: {
+        'import/internal-regex': pathAliases.regex,
         'import/resolver': {
           node: {
             extensions: ['.ts', '.tsx'],
@@ -122,9 +135,15 @@ module.exports = {
           'error',
           {
             alphabetize: { caseInsensitive: true, order: 'asc' },
-            groups: ['builtin', 'external', 'parent', 'sibling'],
+            groups: ['builtin', 'external', 'internal', 'parent', 'sibling'],
             'newlines-between': 'always',
-            pathGroups: [],
+            pathGroups: [
+              {
+                pattern: pathAliases.pattern,
+                group: 'internal',
+                position: 'before',
+              },
+            ],
             pathGroupsExcludedImportTypes: ['builtin'],
           },
         ],
@@ -168,7 +187,7 @@ module.exports = {
 
     // Node
     {
-      files: ['.eslintrc.cjs', 'postcss.config.js', 'remix.config.js'],
+      files: ['.eslintrc.cjs', 'postcss.config.mjs', 'next.config.mjs'],
       env: {
         node: true,
       },
