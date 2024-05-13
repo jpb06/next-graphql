@@ -4,8 +4,6 @@ import { Suspense } from 'react';
 
 import { ApolloProductsClientFetching, Loading, Title } from '@components';
 
-export const dynamic = 'force-dynamic';
-
 const Page = () => (
   <Suspense fallback={<Loading />}>
     <Title>Apollo - CSR with useSuspenseQuery</Title>
